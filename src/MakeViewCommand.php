@@ -66,7 +66,7 @@ class MakeViewCommand extends Command
                 continue;
             }
 
-            if ( ! $this->file->exists($directory)) {
+            if (! $this->file->exists($directory)) {
                 $this->file->makeDirectory($directory, 0777, true);
             }
 
@@ -107,7 +107,7 @@ class MakeViewCommand extends Command
 
     protected function extending()
     {
-        return empty($this->option('extend')) ? false : $this->option('extend');
+        return empty($this->option('extend')) ? 'layouts.app' : $this->option('extend');
     }
 
     protected function renderView($extends)
@@ -116,7 +116,7 @@ class MakeViewCommand extends Command
 
         $content[] = "@extends('{$extends}')";
 
-        if ( ! $this->view->exists($extends)) {
+        if (! $this->view->exists($extends)) {
             $this->warn("Could not find view: {$extends}");
 
             return join(PHP_EOL, $content);
