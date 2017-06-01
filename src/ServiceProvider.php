@@ -13,6 +13,7 @@ class ServiceProvider extends BaseServiceProvider
     public function register()
     {
         $this->commands(MakeViewCommand::class);
+        $this->commands(MakeLayoutCommand::class);
     }
 
 }
